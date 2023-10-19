@@ -25,7 +25,7 @@ function InvoiceForm({ setNewInvoice }) {
       !service.trim() ||
       !date
     ) {
-      console.log('Fields marked with * are mandatory');
+      console.log("Fields marked with * are mandatory and Rate/hour($) and hours can't be zero");
       return;
     }
     const invoice = {
@@ -54,7 +54,7 @@ function InvoiceForm({ setNewInvoice }) {
           </span>
           <h2 className='dialog-title'>
             Create New Invoice
-            <p className='optional'>(Fields marked with * are mandatory)</p>
+            <p className='optional'>(Fields marked with * are mandatory and Rate/hour($) and hours can't be zero)</p>
           </h2>
 
           <div className='edit-container'>
