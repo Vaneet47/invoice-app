@@ -1,6 +1,39 @@
 .sidebar {
   width: 20%;
   height: 100%;
-  background-color: aliceblue;
-  padding: 2.5rem;
+  background-color: rgb(255, 255, 255);
+  padding-left: 2.5rem;
+  padding-top: 2.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+}
+
+.item {
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 2.2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: rgb(96, 96, 96);
+}
+
+.item:hover {
+  font-weight: bold;
+  color: #4338ca;
+  border-right: 4px solid;
+}
+
+.item > span {
+  margin-right: 1rem;
+}
+
+.active {
+  font-weight: bold;
+  color: #4338ca;
+  border-right: 4px solid;
 }

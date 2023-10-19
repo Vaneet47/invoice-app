@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './invoices.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchData, updateData } from './InvoicesSlice';
@@ -18,11 +18,16 @@ function Invoices() {
   return (
     <div>
       <div className='header'>
-        <div>Invoices</div>
-        <div>
-          Preferences
-          <button>Create New</button>
-          <img />
+        <div className='title2'>Invoices</div>
+        <div className='container'>
+          <button className='pref'>
+            <span class='material-symbols-outlined settings'>settings</span>
+            Preferences
+          </button>
+          <button className='pref btn'>
+            <span class='material-symbols-outlined settings'>add_circle</span>Create New
+          </button>
+          <img src='profile-pic.jpeg' />
         </div>
       </div>
       <div>Table content</div>
