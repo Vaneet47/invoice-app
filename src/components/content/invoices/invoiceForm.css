@@ -42,15 +42,16 @@
 .edit-inputs {
   display: flex;
   height: 2rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
   align-items: center;
   justify-content: space-between;
   width: 26rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 input {
   height: 2rem;
+  width: 15rem;
 }
 
 .buttons-container {
@@ -69,6 +70,7 @@ input {
 textarea {
   resize: none;
   padding: 5px 10px;
+  width: 15rem;
 }
 
 .optional{

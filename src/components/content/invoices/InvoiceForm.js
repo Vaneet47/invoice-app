@@ -35,7 +35,7 @@ function InvoiceForm({ setNewInvoice }) {
       hours: hour,
       total: rate * hour + otherExp,
       clientName: clientName.trim(),
-      status: 'draft',
+      status: 'outstanding',
       service: service.trim(),
       otherExpenses: otherExp || 0,
       notes: notes,
@@ -53,7 +53,7 @@ function InvoiceForm({ setNewInvoice }) {
             &times;
           </span>
           <h2 className='dialog-title'>
-            Create New Invoice{' '}
+            Create New Invoice
             <p className='optional'>(Fields marked with * are mandatory)</p>
           </h2>
 

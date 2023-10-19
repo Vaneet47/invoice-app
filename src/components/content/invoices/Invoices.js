@@ -7,6 +7,12 @@ import InvoiceForm from './InvoiceForm';
 function Invoices() {
   const [newInvoice, setNewInvoice] = useState(false);
 
+  const [verifyInvoice, setVerifyInvoice] = useState(false);
+  const [invoiceId, setInvoiceId] = useState();
+
+  const [emailTo, setEmailTo] = useState('');
+  const [emailSubject, setEmailSubject] = useState('');
+
   const data = useSelector((state) => state.invoicesData.invoicesData);
   const dispatch = useDispatch();
 
@@ -24,6 +30,25 @@ function Invoices() {
 
   const handleStatusChange = (id) => {
     dispatch(updateInvoice({ id, status: 'paid' }));
+  };
+
+  const handleSendEmail = (id) => {
+    setInvoiceId(id);
+    setEmailTo(data[id].clientName.replace(' ', '') + '@xyz.com');
+    setVerifyInvoice(true);
+  };
+
+  const handleEmailSend = (id) => {
+    dispatch(updateInvoice({ id, status: 'sent' }));
+    setVerifyInvoice(false);
+  };
+
+  const handleEmailToChange = (e) => {
+    setEmailTo(e.target.value);
+  };
+
+  const handleEmailSubjectChange = (e) => {
+    setEmailSubject(e.target.value);
   };
 
   return (
@@ -74,7 +99,15 @@ function Invoices() {
                   </button>
                 </td>
                 <td>
-                  <button className={`status-item btn`}>Send Email</button>
+                  <button
+                    className={`status-item ${
+                      item.status === 'paid' ? '' : 'btn'
+                    }`}
+                    onClick={() => handleSendEmail(item.id)}
+                    disabled={item.status === 'paid'}
+                  >
+                    Send Email
+                  </button>
                 </td>
               </tr>
             );
@@ -82,6 +115,96 @@ function Invoices() {
         </table>
       </div>
       {newInvoice && <InvoiceForm setNewInvoice={setNewInvoice} />}
+      {verifyInvoice && (
+        <div className='invoiceForm'>
+          <div className='invoiceForm'>
+            <div className='invoiceForm-content'>
+              <span
+                className='close-button'
+                onClick={() => setVerifyInvoice(false)}
+              >
+                &times;
+              </span>
+              <h2 className='dialog-title'>Email Invoice</h2>
+
+              <div>
+                <p>To</p>
+                <input
+                  value={emailTo}
+                  className='verifyEmail'
+                  onChange={handleEmailToChange}
+                />
+              </div>
+              <div>
+                <p>Subject</p>
+                <input
+                  className='verifyEmail'
+                  value={emailSubject}
+                  placeholder={`Reminder: Invoice ${data[invoiceId].invoiceId} from WebWizards Inc.`}
+                  onChange={handleEmailSubjectChange}
+                />
+              </div>
+
+              <h3 className='title2'>Invoice Details</h3>
+
+              <div className='edit-container'>
+                <div>
+                  <div className='edit-inputs'>
+                    <p>Invoice Id</p>
+                    <input value={data[invoiceId].invoiceId} disabled />
+                  </div>
+                  <div className='edit-inputs'>
+                    <p>Client Name</p>
+                    <input value={data[invoiceId].clientName} disabled />
+                  </div>
+                  <div className='edit-inputs'>
+                    <p>Service Provided</p>
+                    <input value={data[invoiceId].service} disabled />
+                  </div>
+                  <div className='edit-inputs'>
+                    <p>Rate/hour($)</p>
+                    <input value={data[invoiceId].rate} disabled />
+                  </div>
+                  <div className='edit-inputs'>
+                    <p>Hours</p>
+                    <input value={data[invoiceId].hours} disabled />
+                  </div>
+                  <div className='edit-inputs'>
+                    <p>Other Expenses($)</p>
+                    <input value={data[invoiceId].otherExpenses} disabled />
+                  </div>
+                  <div className='edit-inputs'>
+                    <p>Total</p>
+                    <p>${data[invoiceId].total}</p>
+                  </div>
+                  <div className='edit-inputs'>
+                    <p>Invoice notes</p>
+                    <textarea value={data[invoiceId].notes} disabled />
+                  </div>
+                  <div className='edit-inputs'>
+                    <p>Date</p>
+                    <input value={data[invoiceId].date} disabled />
+                  </div>
+                </div>
+              </div>
+              <div className='buttons-container'>
+                <button
+                  className='buttons'
+                  onClick={() => setVerifyInvoice(false)}
+                >
+                  Back
+                </button>
+                <button
+                  className='buttons'
+                  onClick={() => handleEmailSend(invoiceId)}
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

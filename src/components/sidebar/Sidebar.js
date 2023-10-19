@@ -4,7 +4,7 @@ import './sidebar.css';
 function Sidebar() {
   return (
     <div className='sidebar'>
-      <div className='title'>Heading</div>
+      <div className='title'>WebWizards</div>
       <div>
         <div className='item'>
           <span className='material-symbols-outlined'>dashboard</span>Dashboard
