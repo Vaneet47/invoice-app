@@ -18,7 +18,13 @@ export const invoicesDataSlice = createSlice({
   name: 'invoicesData',
   initialState,
   reducers: {
-    updateData: (state, action) => {
+    updateInvoice: (state, action) => {
+      const id = action.payload['id'];
+      console.log(action.payload['id'])
+      state.invoicesData[id].status = action.payload['status'];
+    },
+    addNewInvoice: (state, action) => {
+      state.invoicesData.push(action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -38,6 +44,6 @@ export const invoicesDataSlice = createSlice({
   },
 });
 
-export const { updateData } = invoicesDataSlice.actions;
+export const { updateInvoice, addNewInvoice } = invoicesDataSlice.actions;
 
 export default invoicesDataSlice.reducer;

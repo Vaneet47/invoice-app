@@ -4,6 +4,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .container {
@@ -37,6 +38,7 @@
 }
 
 .btn {
+  cursor: pointer;
   border: none;
   background-color: rgb(224, 231, 255);
   color: #4338ca;
@@ -60,4 +62,64 @@ img:hover {
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 2rem;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid lightgray;
+  width: 100%;
+}
+
+th,
+td {
+  height: 3.5rem;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: 300;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-item {
+  font-size: 16px;
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.paid {
+  background-color: rgb(178, 209, 178);
+}
+
+.draft {
+  background-color: lightgray;
+}
+
+.sent {
+  background-color: lightcoral;
+}
+
+select {
+  background-color: rgb(39, 80, 60);
+  color: white;
+  border: none;
+  font-size: 16px;
+  height: 80%;
+  padding: 5px 15px;
 }

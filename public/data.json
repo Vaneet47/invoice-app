@@ -1,33 +1,67 @@
 [
   {
-    "invoice_id": "INV-20231019-001",
-    "date": "2023-10-19",
-    "due_date": "2023-11-19",
-    "customer": {
-      "name": "John Doe",
-      "address": "123 Main Street, Anytown, USA",
-      "email": "john.doe@example.com",
-      "phone": "555-555-5555"
-    },
-    "items": [
-      {
-        "item_id": "ITEM-001",
-        "description": "Product A",
-        "quantity": 2,
-        "unit_price": 50.0,
-        "total_price": 100.0
-      },
-      {
-        "item_id": "ITEM-002",
-        "description": "Product B",
-        "quantity": 3,
-        "unit_price": 30.0,
-        "total_price": 90.0
-      }
-    ],
-    "subtotal": 190.0,
-    "tax_rate": 0.08,
-    "tax_amount": 15.2,
-    "total": 205.2
+    "id": 0,
+    "invoiceId": "INV-20231019-001",
+    "rate": 30,
+    "hours": 25,
+    "total": 750,
+    "clientName": "John Doe",
+    "status": "paid",
+    "service": "web-development",
+    "otherExpenses": 0,
+    "notes": "",
+    "date": "2023-10-19"
+  },
+  {
+    "id": 1,
+    "invoiceId": "INV-20231019-002",
+    "rate": 30,
+    "hours": 25,
+    "total": 750,
+    "clientName": "John Doe",
+    "status": "paid",
+    "service": "web-development",
+    "otherExpenses": 0,
+    "notes": "",
+    "date": "2023-10-19"
+  },
+  {
+    "id": 2,
+    "invoiceId": "INV-20231019-003",
+    "rate": 30,
+    "hours": 25,
+    "total": 750,
+    "clientName": "John Doe",
+    "status": "paid",
+    "service": "web-development",
+    "otherExpenses": 0,
+    "notes": "",
+    "date": "2023-10-19"
+  },
+  {
+    "id": 3,
+    "invoiceId": "INV-20231019-004",
+    "rate": 30,
+    "hours": 25,
+    "total": 750,
+    "clientName": "John Doe",
+    "status": "paid",
+    "service": "web-development",
+    "otherExpenses": 0,
+    "notes": "",
+    "date": "2023-10-19"
+  },
+  {
+    "id": 4,
+    "invoiceId": "INV-20231019-005",
+    "rate": 30,
+    "hours": 25,
+    "total": 750,
+    "clientName": "John Doe",
+    "status": "paid",
+    "service": "web-development",
+    "otherExpenses": 0,
+    "notes": "",
+    "date": "2023-10-19"
   }
 ]
